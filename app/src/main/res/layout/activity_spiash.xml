@@ -12,7 +12,7 @@ android:background="@drawable/launch_bg">
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/tv_spiash_verson"
+        android:id="@+id/tv_spiash_version"
         android:text="verson:1.0"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
