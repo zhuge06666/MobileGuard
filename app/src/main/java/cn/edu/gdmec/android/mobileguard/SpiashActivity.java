@@ -10,8 +10,6 @@ import cn.edu.gdmec.android.mobileguard.m1home.utils.VersionUpdateUtils;
 public class SpiashActivity extends AppCompatActivity {
 private TextView mTvVerson;
     private  String mVerson;
-    public int i=6;
-    public int c=3;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
