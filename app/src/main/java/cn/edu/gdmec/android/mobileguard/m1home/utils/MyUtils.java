@@ -9,7 +9,7 @@ import android.content.pm.PackageManager;
  */
 
 public class MyUtils {
-    public static String getVerson(Context context){
+    public static String getVersion(Context context){
         PackageManager packageManager=context.getPackageManager();
         try {
             PackageInfo packageInfo = packageManager.getPackageInfo(context.getPackageName(),0);

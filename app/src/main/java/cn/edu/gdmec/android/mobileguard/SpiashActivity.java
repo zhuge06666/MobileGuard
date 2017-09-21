@@ -8,16 +8,16 @@ import cn.edu.gdmec.android.mobileguard.m1home.utils.MyUtils;
 import cn.edu.gdmec.android.mobileguard.m1home.utils.VersionUpdateUtils;
 
 public class SpiashActivity extends AppCompatActivity {
-private TextView mTvVerson;
-    private  String mVerson;
+private TextView mTvVersion;
+    private  String mVersion;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_spiash);
-        mVerson = MyUtils.getVerson(getApplicationContext());
-        mTvVerson = (TextView)findViewById(R.id.tv_spiash_version);
-        mTvVerson.setText("版本号："+mVerson);
-        final VersionUpdateUtils versionUpdateUtils=new VersionUpdateUtils(mVerson,SpiashActivity.this);
+        mVersion = MyUtils.getVersion(getApplicationContext());
+        mTvVersion = (TextView)findViewById(R.id.tv_spiash_version);
+        mTvVersion.setText("版本号："+mVersion);
+        final VersionUpdateUtils versionUpdateUtils=new VersionUpdateUtils(mVersion,SpiashActivity.this);
         new Thread(){
             public void run(){
                 super.run();
