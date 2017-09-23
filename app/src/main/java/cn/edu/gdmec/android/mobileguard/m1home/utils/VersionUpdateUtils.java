@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Handler;
 import android.os.Message;
 import android.widget.Toast;
 
@@ -37,26 +38,29 @@ private String mVersion;
     private static final int MESSAGE_SHOW_DIALOG = 104;
     private static final int MESSAGE_ENTERHOME = 105;
 
-    private android.os.Handler handler = new android.os.Handler() {
-        @Override
-        public void handleMessage(Message msg){
-            switch (msg.what){
-                case MESSAGE_IO_ERROR:
-                    Toast.makeText(context,"IO错误",Toast.LENGTH_LONG).show();
-                    break;
-                case MESSAGE_JSON_ERROR:
-                    Toast.makeText(context,"JSON解析错误",Toast.LENGTH_LONG).show();
-                case MESSAGE_SHOW_DIALOG:
-                    showUpdateDialog(versionEntity);
-                    break;
-                case MESSAGE_ENTERHOME:
-                    Intent intent = new Intent(context, HomeActivity.class);
-                    context.startActivity(intent);
-                    context.finish();
-                    break;
-            }
+    private android.os.Handler handler = new Handler(){
+
+    @Override
+    public void handleMessage(Message msg){
+        switch (msg.what){
+            case MESSAGE_IO_ERROR:
+                Toast.makeText(context,"IO错误",Toast.LENGTH_LONG).show();
+                break;
+            case MESSAGE_JSON_ERROR:
+                Toast.makeText(context,"JSON解析错误",Toast.LENGTH_LONG).show();
+            case MESSAGE_SHOW_DIALOG:
+                showUpdateDialog(versionEntity);
+                break;
+            case MESSAGE_ENTERHOME:
+                Intent intent = new Intent(context, HomeActivity.class);
+                context.startActivity(intent);
+                context.finish();
+                break;
         }
-    };
+    }
+};
+
+
     public VersionUpdateUtils(String mVersion, Activity context){
         this.mVersion=mVersion;
         this.context=context;
@@ -66,7 +70,7 @@ private String mVersion;
          HttpClient httpclient =new DefaultHttpClient();
          HttpConnectionParams.setConnectionTimeout(httpclient.getParams(),5000);
          HttpConnectionParams.setSoTimeout(httpclient.getParams(),5000);
-         HttpGet httpGet =new HttpGet("http://android.duapp.com/updateinfo.html");
+         HttpGet httpGet =new HttpGet("http://android2017.duapp.com/updateinfo.html");
          HttpResponse execute = httpclient.execute(httpGet);
          if(execute.getStatusLine().getStatusCode()==200) {
              HttpEntity httpEntity = execute.getEntity();
