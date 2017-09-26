@@ -15,7 +15,7 @@ import cn.edu.gdmec.android.mobileguard.R;
 
 public class HomeAdapter extends BaseAdapter{
     int[] imageId = {R.drawable.safe,R.drawable.callmsgsafe,R.drawable.app,R.drawable.trojan,R.drawable.sysoptimize,
-    R.drawable.taskmanager,R.drawable.netmanager,R.drawable.atools};
+            R.drawable.taskmanager,R.drawable.netmanager,R.drawable.atools,R.drawable.settings};
     String[] names = {"手机防盗","通讯卫士","软件管家","手机杀毒","缓存清理","进程管理","流量统计","高级工具","设计中心"};
     private Context context;
 
@@ -24,16 +24,16 @@ public class HomeAdapter extends BaseAdapter{
     }
     @Override
     public int getCount() {
-        return 0;
+        return 9;
     }
 
     @Override
-    public Object getItem(int position) {
+    public Object getItem(int i) {
         return null;
     }
 
     @Override
-    public long getItemId(int position) {
+    public long getItemId(int i) {
         return 0;
     }
 

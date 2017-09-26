@@ -38,8 +38,7 @@ private String mVersion;
     private static final int MESSAGE_SHOW_DIALOG = 104;
     private static final int MESSAGE_ENTERHOME = 105;
 
-    private android.os.Handler handler = new Handler(){
-
+    private Handler handler = new Handler(){
     @Override
     public void handleMessage(Message msg){
         switch (msg.what){
