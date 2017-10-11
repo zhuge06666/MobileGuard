@@ -3,6 +3,7 @@ package cn.edu.gdmec.android.mobileguard.m2theftguard.dialog.dialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.view.View;
@@ -26,7 +27,7 @@ public class SetUpPasswordDialog extends Dialog implements View.OnClickListener 
         super.onCreate(saveInstanceState);
         initView();
     }
-    public SetUpPasswordDialog(@NonNull Context context){
+    public SetUpPasswordDialog(Context context){
         super(context,R.style.dialog_custom);
     }
     private void initView(){
@@ -48,16 +49,17 @@ public class SetUpPasswordDialog extends Dialog implements View.OnClickListener 
     public void onClick(View view){
         switch (view.getId()){
             case R.id.btn_ok:
+                System.out.print("SetupPasswordDialog");
                 myCallBack.ok();
                 break;
             case R.id.btn_cancel:
-                myCallBack.cancle();
+                myCallBack.cancel();
                 break;
         }
     }
 
     public interface MyCallBack{
         void ok();
-        void cancle();
+        void cancel();
     }
 }
