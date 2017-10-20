@@ -14,6 +14,7 @@
         android:layout_height="160dp"
         android:background="@color/purple">
         <ImageView
+            android:id="@+id/imgv"
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_centerInParent="true"
@@ -34,7 +35,8 @@
         android:layout_gravity="center_vertical"
         android:layout_weight="4"
         android:gravity="center_vertical"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:weightSum="1">
         <ImageView
             android:layout_width="60dp"
             android:layout_height="60dp"
@@ -62,7 +64,7 @@
             android:layout_height="45dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginBottom="20dp"
-            android:background="@drawable/sim_bind_selector"
+            android:background="@drawable/sim_bind_p"
             android:gravity="center"/>
     </LinearLayout>
 </LinearLayout>
