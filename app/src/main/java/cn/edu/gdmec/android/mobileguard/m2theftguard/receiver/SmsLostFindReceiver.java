@@ -1,4 +1,4 @@
-package cn.edu.gdmec.android.mobileguard.m2theftguard.dialog.receiver;
+package cn.edu.gdmec.android.mobileguard.m2theftguard.receiver;
 
 import android.app.Activity;
 import android.app.admin.DevicePolicyManager;
@@ -12,10 +12,8 @@ import android.telephony.SmsMessage;
 import android.text.TextUtils;
 import android.util.Log;
 
-import java.util.Objects;
-
 import cn.edu.gdmec.android.mobileguard.R;
-import cn.edu.gdmec.android.mobileguard.m2theftguard.dialog.service.GPSLocationService;
+import cn.edu.gdmec.android.mobileguard.m2theftguard.service.GPSLocationService;
 
 
 /**

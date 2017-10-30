@@ -1,4 +1,4 @@
-package cn.edu.gdmec.android.mobileguard.m2theftguard.dialog.service;
+package cn.edu.gdmec.android.mobileguard.m2theftguard.service;
 
 
 import android.Manifest;
@@ -12,7 +12,6 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.os.IBinder;
-import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.telephony.SmsManager;
 
@@ -43,7 +42,7 @@ public class GPSLocationService extends Service {
                != PackageManager.PERMISSION_GRANTED) {
            return;
        }
-       lm.requestLocationUpdates(name,0,0, (LocationListener) listener);
+       lm.requestLocationUpdates(name,0,0,listener);
    }
 
     private class MyListener implements LocationListener {

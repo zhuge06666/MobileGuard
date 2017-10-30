@@ -1,4 +1,4 @@
-package cn.edu.gdmec.android.mobileguard.m2theftguard.dialog.receiver;
+package cn.edu.gdmec.android.mobileguard.m2theftguard.receiver;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;

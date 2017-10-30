@@ -1,4 +1,4 @@
-package cn.edu.gdmec.android.mobileguard.m2theftguard.dialog.utils;
+package cn.edu.gdmec.android.mobileguard.m2theftguard.utils;
 
 import android.content.ContentResolver;
 import android.content.Context;
@@ -9,7 +9,7 @@ import android.text.TextUtils;
 import java.util.ArrayList;
 import java.util.List;
 
-import cn.edu.gdmec.android.mobileguard.m2theftguard.dialog.entity.ContactInfo;
+import cn.edu.gdmec.android.mobileguard.m2theftguard.entity.ContactInfo;
 
 /**
  * Created by Administrator on 2017/10/20.

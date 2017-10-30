@@ -15,68 +15,102 @@ import android.widget.Toast;
 
 import cn.edu.gdmec.android.mobileguard.R;
 import cn.edu.gdmec.android.mobileguard.m1home.adapter.HomeAdapter;
-import cn.edu.gdmec.android.mobileguard.m2theftguard.dialog.LostFindActivity;
-import cn.edu.gdmec.android.mobileguard.m2theftguard.dialog.dialog.InterPasswordDialog;
-import cn.edu.gdmec.android.mobileguard.m2theftguard.dialog.dialog.SetUpPasswordDialog;
-import cn.edu.gdmec.android.mobileguard.m2theftguard.dialog.receiver.MyDeviceAdminReceiver;
-import cn.edu.gdmec.android.mobileguard.m2theftguard.dialog.utils.MD5Utils;
+import cn.edu.gdmec.android.mobileguard.m2theftguard.LostFindActivity;
+import cn.edu.gdmec.android.mobileguard.m2theftguard.dialog.InterPasswordDialog;
+import cn.edu.gdmec.android.mobileguard.m2theftguard.dialog.SetUpPasswordDialog;
+import cn.edu.gdmec.android.mobileguard.m2theftguard.receiver.MyDeviceAdminReceiver;
+import cn.edu.gdmec.android.mobileguard.m2theftguard.utils.MD5Utils;
+
 
 public class HomeActivity extends AppCompatActivity {
-    private GridView gv_home;
+
     private long mExitTime;
-    private SharedPreferences msharePreferences;
+    private GridView gv_home;
+    private SharedPreferences msharedPreferences;
     private DevicePolicyManager policyManager;
     private ComponentName componentName;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //初始化布局
         setContentView(R.layout.activity_home);
         getSupportActionBar().hide();
-        msharePreferences=getSharedPreferences("config",MODE_PRIVATE);
-        gv_home = (GridView)findViewById(R.id.gv_home);
+        msharedPreferences = getSharedPreferences("config", MODE_PRIVATE);
+        //初始化gridView
+        gv_home = (GridView) findViewById(R.id.gv_home);
         gv_home.setAdapter(new HomeAdapter(HomeActivity.this));
-        gv_home.setOnItemClickListener(new AdapterView.OnItemClickListener(){
-
+        //设置条目的点击事件
+        gv_home.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int i, long l) {
-                System.out.print(i);
-               switch (i){
-                   case 0:
-                       if(isSetUpPassword()){
-                           showInterPswdDialog();
-                       }else{
-                           showSetUpPswdDialog();
-                       }
-                       break;
-               }
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                switch (position) {
+                    case 0://手机防盗
+                        if (isSetUpPassword()) {
+                            showInterPswdDialog();
+                        } else {
+                            showSetUpPswdDialog();
+                        }
+                        break;
+                    case 1://通讯卫士
+                        //startActivity(SecurityPhoneActivity.class);
+                        break;
+                    case 2://软件管家
+                        //startActivity(AppManagerActivity.class);
+                        break;
+                    case 3://病毒查杀
+                        //startActivity(VirusScanActivity.class);
+                        break;
+                    case 4://缓存清理
+                        //startActivity(CacheClearListActivity.class);
+                    case 5://进程管理
+                        //startActivity(ProcessManagerActivity.class);
+                        break;
+                    case 6://流量统计
+                        //startActivity(TrafficMonitoringActivity.class);
+                        break;
+                    case 7://高级工具
+                        //startActivity(AdvancedToolsActivity.class);
+                        break;
+                    case 8://设置中心
+                        //startActivity(SettingsActivity.class);
+                        break;
+
+                }
             }
         });
         policyManager=(DevicePolicyManager) getSystemService(DEVICE_POLICY_SERVICE);
         componentName=new ComponentName(this, MyDeviceAdminReceiver.class);
         boolean active=policyManager.isAdminActive(componentName);
-        if(!active){
-            Intent intent = new Intent(DevicePolicyManager.ACTION_ADD_DEVICE_ADMIN);
+        if (!active){
+            Intent intent= new Intent(DevicePolicyManager.ACTION_ADD_DEVICE_ADMIN);
             intent.putExtra(DevicePolicyManager.EXTRA_DEVICE_ADMIN,componentName);
             intent.putExtra(DevicePolicyManager.EXTRA_ADD_EXPLANATION,"获取超级管理员权限，用于远程锁屏和清除数据");
+            startActivity(intent);
         }
     }
+
+
     public void startActivity(Class<?> cls){
-        Intent intent = new Intent(HomeActivity.this,cls);
+        Intent intent=new Intent(HomeActivity.this,cls);
         startActivity(intent);
     }
+
+
+
     @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event){
-        if (keyCode==KeyEvent.KEYCODE_BACK){
-            if ((System.currentTimeMillis()-mExitTime)<2000){
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if(keyCode==KeyEvent.KEYCODE_BACK){
+            if((System.currentTimeMillis()-mExitTime)>2000){
+                Toast.makeText(this, "再按一次退出程序", Toast.LENGTH_SHORT).show();
+                mExitTime=System.currentTimeMillis();
+            }else {
                 System.exit(0);
-            }else{
-                Toast.makeText(this,"再按一次退出程序",Toast.LENGTH_LONG).show();
-                mExitTime = System.currentTimeMillis();
             }
             return true;
         }
-        return super.onKeyDown(keyCode,event);
+        return super.onKeyDown(keyCode, event);
     }
     private void showSetUpPswdDialog(){
         final SetUpPasswordDialog setUpPasswordDialog=new SetUpPasswordDialog(HomeActivity.this);
@@ -128,6 +162,7 @@ public class HomeActivity extends AppCompatActivity {
             public void cancle() {
                 mInPswdDialog.dismiss();
             }
+
         });
         mInPswdDialog.setCancelable(true);
         mInPswdDialog.show();
@@ -135,13 +170,13 @@ public class HomeActivity extends AppCompatActivity {
 
 
     private void savePswd(String affirmPwsd) {
-        SharedPreferences.Editor edit=msharePreferences.edit();
+        SharedPreferences.Editor edit=msharedPreferences.edit();
         edit.putString("PhoneAntiTheftPWD",MD5Utils.encode(affirmPwsd));
         edit.commit();
     }
 
     private String getPassword() {
-        String password=msharePreferences.getString("PhoneAntiTheftPWD",null);
+        String password=msharedPreferences.getString("PhoneAntiTheftPWD",null);
         if (TextUtils.isEmpty(password)){
             return "";
         }
@@ -149,8 +184,8 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private boolean isSetUpPassword() {
-        String password = msharePreferences.getString("PhoneAntiTheftPWD", null);
-        if (TextUtils.isEmpty(password)) {
+        String password=msharedPreferences.getString("PhoneAntiTheftPWD",null);
+        if (TextUtils.isEmpty(password)){
             return false;
         }
         return true;

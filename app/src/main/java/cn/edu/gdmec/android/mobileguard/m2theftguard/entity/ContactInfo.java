@@ -1,4 +1,4 @@
-package cn.edu.gdmec.android.mobileguard.m2theftguard.dialog.entity;
+package cn.edu.gdmec.android.mobileguard.m2theftguard.entity;
 
 /**
  * Created by Administrator on 2017/10/20.

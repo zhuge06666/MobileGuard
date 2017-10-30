@@ -1,4 +1,4 @@
-package cn.edu.gdmec.android.mobileguard.m2theftguard.dialog;
+package cn.edu.gdmec.android.mobileguard.m2theftguard;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,12 +12,11 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.List;
-import java.util.logging.LogRecord;
 
 import cn.edu.gdmec.android.mobileguard.R;
-import cn.edu.gdmec.android.mobileguard.m2theftguard.dialog.adapter.ContactAdapter;
-import cn.edu.gdmec.android.mobileguard.m2theftguard.dialog.entity.ContactInfo;
-import cn.edu.gdmec.android.mobileguard.m2theftguard.dialog.utils.ContactInfoParser;
+import cn.edu.gdmec.android.mobileguard.m2theftguard.adapter.ContactAdapter;
+import cn.edu.gdmec.android.mobileguard.m2theftguard.entity.ContactInfo;
+import cn.edu.gdmec.android.mobileguard.m2theftguard.utils.ContactInfoParser;
 
 /**
  * Created by Administrator on 2017/10/20.
