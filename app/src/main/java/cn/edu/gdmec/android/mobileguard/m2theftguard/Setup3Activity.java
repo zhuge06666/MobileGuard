@@ -5,7 +5,6 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Toast;
@@ -13,12 +12,11 @@ import android.widget.Toast;
 import cn.edu.gdmec.android.mobileguard.R;
 
 /**
- * Created by 黄煜辉 on 2017/9/20.
+ * Created by Administrator on 2017/10/31.
  */
 
 public class Setup3Activity extends BaseSetUpActivity implements View.OnClickListener{
     private EditText mInputPhone;
-    private int i=1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,5 +68,4 @@ public class Setup3Activity extends BaseSetUpActivity implements View.OnClickLis
             mInputPhone.setText(phone);
         }
     }
-
 }
