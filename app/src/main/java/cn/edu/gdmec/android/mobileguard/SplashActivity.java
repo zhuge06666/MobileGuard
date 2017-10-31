@@ -7,7 +7,7 @@ import android.widget.TextView;
 import cn.edu.gdmec.android.mobileguard.m1home.utils.MyUtils;
 import cn.edu.gdmec.android.mobileguard.m1home.utils.VersionUpdateUtils;
 
-public class SpiashActivity extends AppCompatActivity {
+public class SplashActivity extends AppCompatActivity {
 private TextView mTvVersion;
     private  String mVersion;
     @Override
@@ -17,7 +17,7 @@ private TextView mTvVersion;
         mVersion = MyUtils.getVersion(getApplicationContext());
         mTvVersion = (TextView)findViewById(R.id.tv_spiash_version);
         mTvVersion.setText("版本号："+mVersion);
-        final VersionUpdateUtils versionUpdateUtils=new VersionUpdateUtils(mVersion,SpiashActivity.this);
+        final VersionUpdateUtils versionUpdateUtils=new VersionUpdateUtils(mVersion,SplashActivity.this);
         new Thread(){
             public void run(){
                 super.run();
