@@ -18,6 +18,7 @@ import cn.edu.gdmec.android.mobileguard.R;
 
 public class Setup3Activity extends BaseSetUpActivity implements View.OnClickListener{
     private EditText mInputPhone;
+    private int i=1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
