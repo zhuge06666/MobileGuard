@@ -268,7 +268,7 @@ public class ExampleInstrumentedTest {
         assertEquals("security contact phonenumber",str,"1 376-079-5885");
     }
 
-    @Test
+    //@Test
     public void t09ConfirmDeviceAdmin() throws UiObjectNotFoundException {
         UiObject result = mDevice.findObject(new UiSelector().textStartsWith("激活此设备管理员"));
         String str = result.getText();
@@ -276,7 +276,7 @@ public class ExampleInstrumentedTest {
         result = mDevice.findObject(new UiSelector().textStartsWith("手机防盗"));
         str = result.getText();
     }
-    @Test
+    //@Test
     public void t10SetupTheftGuard() throws UiObjectNotFoundException {
         UiObject result = mDevice.findObject(new UiSelector().textStartsWith("手机防盗"));
         result.clickAndWaitForNewWindow();
@@ -314,7 +314,7 @@ public class ExampleInstrumentedTest {
         result.click();
         mDevice.swipe(400,300,0,300,50);
     }
-    @Test
+    //@Test
     public void t11ReSetupTheftGuard() throws UiObjectNotFoundException {
         UiObject result = mDevice.findObject(new UiSelector().textStartsWith("手机防盗"));
         result.clickAndWaitForNewWindow();
@@ -329,7 +329,7 @@ public class ExampleInstrumentedTest {
         result = mDevice.findObject(new UiSelector().textStartsWith("手机防盗向导"));
         String str = result.getText();
     }
-   /* @Test
+    @Test
     public void t12CommunicationGuardWithoutTitleBar() throws Exception {
         UiObject result = mDevice.findObject(new UiSelector().textStartsWith("通讯卫士"));
         result.clickAndWaitForNewWindow();
@@ -389,5 +389,5 @@ public class ExampleInstrumentedTest {
         if (str1.equals(str)){
             throw new Exception("Blacklist can't be scrolled to load more items.");
         }
-    }*/
+    }
 }

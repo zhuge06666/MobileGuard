@@ -16,10 +16,6 @@ import android.widget.ToggleButton;
 import cn.edu.gdmec.android.mobileguard.R;
 
 
-/**
- * Created by 黄煜辉 on 2017/9/20.
- */
-
 public class LostFindActivity extends AppCompatActivity implements View.OnClickListener {
     private TextView mSafePhoneTV;
     private RelativeLayout mInterSetupRL;

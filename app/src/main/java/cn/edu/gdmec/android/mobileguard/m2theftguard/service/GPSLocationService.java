@@ -51,7 +51,7 @@ public class GPSLocationService extends Service {
             StringBuilder sb = new StringBuilder();
             sb.append("accuracy"+location.getAccuracy()+"\n");
             sb.append("speed"+location.getSpeed()+"\n");
-            sb.append("Logitude"+location.getLongitude()+"\n");
+            sb.append("Longitude"+location.getLongitude()+"\n");
             sb.append("Latitude"+location.getLatitude()+"\n");
             String result = sb.toString();
             SharedPreferences sp = getSharedPreferences("config",MODE_PRIVATE);
