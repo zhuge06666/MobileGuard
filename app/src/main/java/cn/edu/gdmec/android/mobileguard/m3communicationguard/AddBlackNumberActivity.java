@@ -21,6 +21,7 @@ public class AddBlackNumberActivity extends AppCompatActivity implements View.On
     private CheckBox mTelCB;
     private EditText mNumET;
     private EditText mNameET;
+    private EditText mContentET;
     private BlackNumberDao dao;
     private void initView(){
         findViewById(R.id.rl_titlebar).setBackgroundColor(getResources().getColor(R.color.bright_purple));
@@ -32,6 +33,7 @@ public class AddBlackNumberActivity extends AppCompatActivity implements View.On
         mTelCB=(CheckBox)findViewById(R.id.cb_blacknumber_tel);
         mNumET=(EditText)findViewById(R.id.et_balcknumber);
         mNameET=(EditText)findViewById(R.id.et_blackname);
+        mContentET=(EditText)findViewById(R.id.et_content);
         findViewById(R.id.add_blacknum_btn).setOnClickListener(this);
         findViewById(R.id.add_fromcontact_btn).setOnClickListener(this);
     }
@@ -41,8 +43,10 @@ public class AddBlackNumberActivity extends AppCompatActivity implements View.On
         if(data!=null){
             String phone = data.getStringExtra("phone");
             String name = data.getStringExtra("name");
+            String content = data.getStringExtra("content");
             mNameET.setText(name);
             mNumET.setText(phone);
+            mContentET.setText(content);
         }
     }
     @Override
@@ -62,6 +66,7 @@ public class AddBlackNumberActivity extends AppCompatActivity implements View.On
             case R.id.add_blacknum_btn:
                 String number = mNumET.getText().toString().trim();
                 String name = mNameET.getText().toString().trim();
+                String content=mContentET.getText().toString().trim();
                 if (TextUtils.isEmpty(number)||TextUtils.isEmpty(name)){
                     Toast.makeText(this,"电话号码的手机号不能为空！",Toast.LENGTH_LONG).show();
                     return;
@@ -69,6 +74,7 @@ public class AddBlackNumberActivity extends AppCompatActivity implements View.On
                     BlackContactInfo blackContactInfo = new BlackContactInfo();
                     blackContactInfo.phoneNumber=number;
                     blackContactInfo.contactName=name;
+                    blackContactInfo.content=content;
                     if(mSmsCB.isChecked()&mTelCB.isChecked()){
                         blackContactInfo.mode=3;
                     }else if(mSmsCB.isChecked()&!mTelCB.isChecked()){
