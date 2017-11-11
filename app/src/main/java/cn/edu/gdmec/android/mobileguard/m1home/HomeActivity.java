@@ -21,6 +21,7 @@ import cn.edu.gdmec.android.mobileguard.m2theftguard.dialog.SetUpPasswordDialog;
 import cn.edu.gdmec.android.mobileguard.m2theftguard.receiver.MyDeviceAdminReceiver;
 import cn.edu.gdmec.android.mobileguard.m2theftguard.utils.MD5Utils;
 import cn.edu.gdmec.android.mobileguard.m3communicationguard.SecurityPhoneActivity;
+import cn.edu.gdmec.android.mobileguard.m4appmanager.AppManagerActivity;
 
 
 public class HomeActivity extends AppCompatActivity {
@@ -58,7 +59,7 @@ public class HomeActivity extends AppCompatActivity {
                         startActivity(SecurityPhoneActivity.class);
                         break;
                     case 2://软件管家
-                        //startActivity(AppManagerActivity.class);
+                        startActivity(AppManagerActivity.class);
                         break;
                     case 3://病毒查杀
                         //startActivity(VirusScanActivity.class);
