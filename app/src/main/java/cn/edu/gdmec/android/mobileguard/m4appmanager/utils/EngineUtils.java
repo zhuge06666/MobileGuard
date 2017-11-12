@@ -59,10 +59,10 @@ public class EngineUtils {
         }
     }
     public static void aboutApplication(Context context,AppInfo appInfo){
-        PackageManager pm=context.getPackageManager();
         try {
+            PackageManager pm=context.getPackageManager();
             //获取版本号
-            PackageInfo info=pm.getPackageInfo(context.getPackageName(),0);
+            PackageInfo info=pm.getPackageInfo(appInfo.packageName,0);
             String version=info.versionName;
             //获取安装日期
             long firstInstallTime=info.firstInstallTime;
@@ -79,7 +79,7 @@ public class EngineUtils {
                 }
             }
             //获取签名信息
-            PackageInfo info2=pm.getPackageInfo(context.getPackageName(),PackageManager.GET_SIGNATURES);
+            PackageInfo info2=pm.getPackageInfo(appInfo.packageName,PackageManager.GET_SIGNATURES);
             String certMsg="";
             Signature[] sigs = info2.signatures;
             CertificateFactory certFactory = CertificateFactory.getInstance("X.509");
