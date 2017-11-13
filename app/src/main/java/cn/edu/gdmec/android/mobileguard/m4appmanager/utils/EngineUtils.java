@@ -3,11 +3,11 @@ package cn.edu.gdmec.android.mobileguard.m4appmanager.utils;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
 import android.net.Uri;
-import android.widget.ListView;
 import android.widget.Toast;
 
 import java.io.ByteArrayInputStream;
@@ -16,6 +16,7 @@ import java.security.cert.X509Certificate;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Pattern;
 
 import cn.edu.gdmec.android.mobileguard.m4appmanager.entity.AppInfo;
 
@@ -89,6 +90,28 @@ public class EngineUtils {
             AlertDialog.Builder builder = new AlertDialog.Builder(context);
             builder.setTitle(appInfo.appName);
             builder.setMessage("version:"+version+"\n"+"Install time:"+date+"\n"+"Certificate issuer:"+certMsg+"Permissions："+per);
+            builder.show();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+    public static void actApplication(Context context,AppInfo appInfo){
+        try {
+            PackageManager pm=context.getPackageManager();
+            PackageInfo info=pm.getPackageInfo(appInfo.packageName,0);
+            PackageInfo info2 = pm.getPackageInfo(appInfo.packageName, PackageManager.GET_ACTIVITIES);
+            ActivityInfo[] act=info2.activities;
+            List<ActivityInfo> actInfo=new ArrayList<>();
+            if (act!=null){
+                for (ActivityInfo act1 : act){
+                    actInfo.add(act1);
+                }
+            };
+            AlertDialog.Builder builder = new AlertDialog.Builder(context);
+            builder.setTitle(appInfo.appName);
+            String a=actInfo.toString();
+            //String a = Pattern.compile("\\b([\\w\\W])\\b").matcher(actInfo.toString().substring(1,actInfo.toString().length()-1)).replaceAll(".");
+            builder.setMessage(a);
             builder.show();
         }catch (Exception e){
             e.printStackTrace();
