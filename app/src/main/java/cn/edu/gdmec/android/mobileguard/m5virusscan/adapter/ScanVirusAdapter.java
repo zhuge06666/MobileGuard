@@ -70,7 +70,7 @@ public class ScanVirusAdapter extends BaseAdapter{
             holder.mAppNameTV.setTextColor(context.getResources().getColor(R.color.bright_red));
             holder.mAppNameTV.setText(scanAppInfo.appName+"("+scanAppInfo.description+")");
         }
-        holder.mScanIconImgv.setImageDrawable(scanAppInfo.appicon);
+        holder.mAppIconImgv.setImageDrawable(scanAppInfo.appicon);
         return view;
     }
 }

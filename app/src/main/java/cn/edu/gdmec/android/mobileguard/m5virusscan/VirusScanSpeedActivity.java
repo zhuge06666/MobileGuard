@@ -61,7 +61,7 @@ public class VirusScanSpeedActivity extends AppCompatActivity implements View.On
                     break;
                 case SCANNING:
                     ScanAppInfo info = (ScanAppInfo) msg.obj;
-                    mScanAppTV.setText("" + info.appName);
+                    mScanAppTV.setText("正在扫描:" + info.appName);
                     int speed = msg.arg1;
                     mProcessTV.setText((speed * 100 / total) + "%");
                     mScanAppInfos.add(info);
@@ -123,7 +123,7 @@ public class VirusScanSpeedActivity extends AppCompatActivity implements View.On
                      ScanAppInfo scanInfo = new ScanAppInfo();
                      if (result == null){
                          scanInfo.description = "扫描安全";
-                         scanInfo.isVirus = true;
+                         scanInfo.isVirus = false;
                      } else {
                          scanInfo.description = result;
                          scanInfo.isVirus = true;
@@ -181,7 +181,7 @@ public class VirusScanSpeedActivity extends AppCompatActivity implements View.On
               case R.id.btn_canclescan:
                   if (process == total & process >0){
                       finish();
-                  }else if (process >0 & process<total & isStop ==false){
+                  }else if (process >0 & process<total & isStop == false){
                       mScanningIcon.clearAnimation();
                       flag = false;
                       mCancleBtn.setBackgroundResource(R.drawable.restart_scan_btn);

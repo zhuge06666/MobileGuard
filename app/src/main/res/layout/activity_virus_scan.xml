@@ -41,11 +41,18 @@
             android:layout_centerVertical="true"
             android:layout_marginLeft="10dp"/>
         <TextView
-            android:id="@+id/imgv_allscan"
+            android:id="@+id/tv_allscan"
             style="@style/textview16sp"
             android:layout_toRightOf="@+id/imgv_quickscan"
             android:layout_marginLeft="15dp"
             android:layout_marginTop="15dp"
+            android:text="全盘扫描"/>
+        <TextView
+            style="@style/textview14sp"
+            android:layout_below="@+id/tv_allscan"
+            android:layout_marginLeft="15dp"
+            android:layout_toRightOf="@+id/imgv_quickscan"
+            android:layout_marginTop="10dp"
             android:text="全盘扫描手机，杀毒更彻底"/>
         <View
             android:layout_width="13dp"
