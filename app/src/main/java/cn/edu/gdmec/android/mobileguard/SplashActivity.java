@@ -17,11 +17,11 @@ private TextView mTvVersion;
         mVersion = MyUtils.getVersion(getApplicationContext());
         mTvVersion = (TextView)findViewById(R.id.tv_spiash_version);
         mTvVersion.setText("版本号："+mVersion);
-        final VersionUpdateUtils versionUpdateUtils=new VersionUpdateUtils(mVersion,SplashActivity.this);
+        final VersionUpdateUtils versionUpdateUtils=new VersionUpdateUtils(mVersion,SplashActivity.this,null,null);
         new Thread(){
             public void run(){
                 super.run();
-                versionUpdateUtils.getCloudVersion();
+                versionUpdateUtils.getCloudVersion("http://android2017.duapp.com/updateinfo.html");
             }
         }.start();
     }
