@@ -23,14 +23,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SplashActivity"></activity>
-        <activity android:name=".m1home.HomeActivity">
+        <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".m1home.HomeActivity"/>
         <activity android:name=".m2theftguard.LostFindActivity" />
         <activity android:name=".m2theftguard.Setup1Activity" />
         <activity android:name=".m2theftguard.Setup2Activity" />
@@ -95,6 +95,8 @@
         </receiver>
 
         <activity android:name=".m4appmanager.AppManagerActivity"></activity>
+        <activity android:name=".m5virusscan.VirusScanActivity"></activity>
+        <activity android:name=".m5virusscan.VirusScanSpeedActivity"></activity>
     </application>
 
 </manifest>
