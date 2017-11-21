@@ -10,6 +10,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.net.Uri;
+import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
 import android.webkit.MimeTypeMap;
@@ -25,6 +26,7 @@ import org.apache.http.util.EntityUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -32,6 +34,7 @@ import java.util.regex.Pattern;
 import cn.edu.gdmec.android.mobileguard.R;
 import cn.edu.gdmec.android.mobileguard.m1home.HomeActivity;
 import cn.edu.gdmec.android.mobileguard.m1home.entity.VersionEntity;
+import cn.edu.gdmec.android.mobileguard.m5virusscan.VirusScanActivity;
 
 /**
  * Created by Administrator on 2017/9/16.
@@ -189,16 +192,18 @@ public class VersionUpdateUtils {
                 long ID = intent.getLongExtra(DownloadManager.EXTRA_DOWNLOAD_ID, -1);
                 if (ID == Id) {
                     Toast.makeText(context.getApplicationContext(), "下载编号:" + Id +"的"+filename+" 下载完成!", Toast.LENGTH_LONG).show();
+
                 }
                 context.unregisterReceiver(broadcastReceiver);
+
                 downloadCallback.afterDownload(filename);
             }
         };
         context.registerReceiver(broadcastReceiver, intentFilter);
-
     }
     public interface DownloadCallback{
         void afterDownload(String filename);
+
     }
 }
 
