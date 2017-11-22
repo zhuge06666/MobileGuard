@@ -23,6 +23,7 @@ import cn.edu.gdmec.android.mobileguard.m2theftguard.utils.MD5Utils;
 import cn.edu.gdmec.android.mobileguard.m3communicationguard.SecurityPhoneActivity;
 import cn.edu.gdmec.android.mobileguard.m4appmanager.AppManagerActivity;
 import cn.edu.gdmec.android.mobileguard.m5virusscan.VirusScanActivity;
+import cn.edu.gdmec.android.mobileguard.m6cleancache.CacheClearListActivity;
 
 
 public class HomeActivity extends AppCompatActivity {
@@ -66,7 +67,7 @@ public class HomeActivity extends AppCompatActivity {
                         startActivity(VirusScanActivity.class);
                         break;
                     case 4://缓存清理
-                        //startActivity(CacheClearListActivity.class);
+                        startActivity(CacheClearListActivity.class);
                     case 5://进程管理
                         //startActivity(ProcessManagerActivity.class);
                         break;

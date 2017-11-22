@@ -14,6 +14,15 @@
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.READ_CALL_LOG" />
     <uses-permission android:name="android.permission.WRITE_CALL_LOG" />
+    <!--m6-->
+    <uses-permission android:name="android.permission.GET_PACKAGE_SIZE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.MOUNT_FORMAT_FILESYSTEMS"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_SMS"/>
+    <uses-permission android:name="android.permission.CLEAR_APP_CACHE" />
+
 
     <application
         android:name=".App"
@@ -23,15 +32,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <activity android:name=".m1home.HomeActivity">
-        </activity>
-        <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
             </activity>
+        <activity android:name=".SplashActivity"/>
         <activity android:name=".m2theftguard.LostFindActivity" />
         <activity android:name=".m2theftguard.Setup1Activity" />
         <activity android:name=".m2theftguard.Setup2Activity" />
@@ -39,6 +48,8 @@
         <activity android:name=".m2theftguard.Setup4Activity" />
         <activity android:name=".m3communicationguard.AddBlackNumberActivity" />
         <activity android:name=".m3communicationguard.SecurityPhoneActivity" />
+        <activity android:name=".m6cleancache.CacheClearListActivity"/>
+        <activity android:name=".m6cleancache.CleanCacheActivity"/>
 
         <receiver
             android:name=".m3communicationguard.receiver.InterceptCallReciever"
