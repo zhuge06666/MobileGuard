@@ -106,9 +106,11 @@
             </intent-filter>
         </receiver>
 
-        <activity android:name=".m4appmanager.AppManagerActivity"></activity>
-        <activity android:name=".m5virusscan.VirusScanActivity"></activity>
-        <activity android:name=".m5virusscan.VirusScanSpeedActivity"></activity>
+<activity android:name=".m4appmanager.AppManagerActivity"></activity>
+<activity android:name=".m5virusscan.VirusScanActivity"></activity>
+<activity android:name=".m5virusscan.VirusScanSpeedActivity"></activity>
+<activity android:name=".m8trafficmonitor.OperatorSetActivity"></activity>
+<activity android:name=".m8trafficmonitor.TrafficMonitoringActivity"></activity>
     </application>
 
-</manifest>
+    </manifest>
