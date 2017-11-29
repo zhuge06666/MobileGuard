@@ -530,7 +530,7 @@ public class ExampleInstrumentedTest {
         sleep(5000);
         result = mDevice.findObject(new UiSelector().className("android.widget.Button"));
         result.clickAndWaitForNewWindow();
-        result = mDevice.findObject(new UiSelector().textStartsWith("成清理"));
+        result = mDevice.findObject(new UiSelector().textStartsWith("成功清理"));
         str = result.getText();
         if(!result.exists()){
             throw new Exception("Can't enter CacheScanActivity.");
