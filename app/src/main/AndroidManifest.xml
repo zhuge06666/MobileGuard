@@ -48,6 +48,7 @@
         <activity android:name=".m3communicationguard.SecurityPhoneActivity" />
         <activity android:name=".m6cleancache.CacheClearListActivity" />
         <activity android:name=".m6cleancache.CleanCacheActivity" />
+
         <receiver
             android:name=".m3communicationguard.receiver.InterceptCallReciever"
             android:enabled="true"
@@ -109,7 +110,9 @@
         <activity android:name=".m8trafficmonitor.OperatorSetActivity" />
         <activity android:name=".m8trafficmonitor.TrafficMonitoringActivity" />
         <activity android:name=".m9advancedtools.AdvancedToolsActivity" />
-        <activity android:name=".m9advancedtools.NumBelongtoActivity"></activity>
+        <activity android:name=".m9advancedtools.NumBelongtoActivity" />
+        <activity android:name=".m9advancedtools.AppLockActivity" />
+        <activity android:name=".m9advancedtools.EnterPswActivity"></activity>
     </application>
 
 </manifest>
