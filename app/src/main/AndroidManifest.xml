@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="cn.edu.gdmec.android.mobileguard">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -22,7 +23,9 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_SMS" />
     <uses-permission android:name="android.permission.CLEAR_APP_CACHE" />
-
+    <uses-permission
+        android:name="android.permission.PACKAGE_USAGE_STATS"
+        tools:ignore="ProtectedPermissions"/>
     <application
         android:name=".App"
         android:allowBackup="true"
