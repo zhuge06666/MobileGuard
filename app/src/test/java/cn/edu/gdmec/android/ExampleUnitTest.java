@@ -1,4 +1,4 @@
-package cn.edu.gdmec.android.mobileguard;
+package cn.edu.gdmec.android;
 
 import org.junit.Test;
 
