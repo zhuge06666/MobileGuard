@@ -94,7 +94,7 @@ public class AppLockService extends Service {
                 while (flag){
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP){
                         UsageStatsManager m = (UsageStatsManager) getSystemService(Context.USAGE_STATS_SERVICE);
-                        if (m !=null){
+                        if (m != null){
                             long now = System.currentTimeMillis();
                             List<UsageStats> stats=m.queryUsageStats(
                                     UsageStatsManager.INTERVAL_BEST,now-60*1000,now);
