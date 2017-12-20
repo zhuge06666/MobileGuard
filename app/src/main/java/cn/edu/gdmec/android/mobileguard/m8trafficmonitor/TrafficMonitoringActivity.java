@@ -130,6 +130,7 @@ public class TrafficMonitoringActivity extends AppCompatActivity implements View
                         smsManager.sendTextMessage("10086", null, "CXLL", null, null);
                         break;
                     case 2:
+                        smsManager.sendTextMessage("10010", null, "CXLL", null, null);
                         break;
                     case 3:
                         break;
